@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Mobile responsiveness viewport tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Tursun Udriin Mend!</title>
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Greeting Card Container */
+    .card-container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 24px 20px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      width: 85%;
+      max-width: 420px;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      border: 2px solid #fff;
+    }
+
+    h1 {
+      color: #ff4757;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      margin-bottom: 12px;
+      text-shadow: 1px 1px 0px #ffeaa7;
+    }
+
+    p {
+      color: #485460;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .btn-celebrate {
+      background: #ff6b81;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(255, 107, 129, 0.4);
+      transition: transform 0.2s ease, background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-celebrate:active {
+      transform: scale(0.95);
+      background: #ff4757;
+    }
+
+    /* Animal Stickers floating around */
+    .sticker {
+      position: absolute;
+      width: 22vw;
+      max-width: 110px;
+      min-width: 60px;
+      height: auto;
+      filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+      animation: float 4s ease-in-out infinite;
+      user-select: none;
+      z-index: 5;
+    }
+
+    /* Floating positions suited for all screen sizes */
+    .sticker-1 { top: 3%; left: 3%; animation-delay: 0s; }
+    .sticker-2 { top: 3%; right: 3%; animation-delay: 0.6s; }
+    .sticker-3 { top: 38%; left: 1%; animation-delay: 1.2s; }
+    .sticker-4 { top: 38%; right: 1%; animation-delay: 1.8s; }
+    .sticker-5 { bottom: 3%; left: 4%; animation-delay: 2.4s; }
+    .sticker-6 { bottom: 3%; right: 4%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(4deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Image files from GitHub repo -->
+  <img src="834271826_2968424820193416_2144558570808010130_n.png" class="sticker sticker-1" alt="Sticker 1" />
+  <img src="836258466_1079675634858158_8436385377347472767_n.png" class="sticker sticker-2" alt="Sticker 2" />
+  <img src="837494012_1611483493852836_5250070181093305977_n.png" class="sticker sticker-3" alt="Sticker 3" />
+  <img src="834271826_2968424820193416_2144558570808010130_n.png" class="sticker sticker-4" alt="Sticker 4" />
+  <img src="836258466_1079675634858158_8436385377347472767_n.png" class="sticker sticker-5" alt="Sticker 5" />
+  <img src="837494012_1611483493852836_5250070181093305977_n.png" class="sticker sticker-6" alt="Sticker 6" />
+
+  <!-- Birthday Greeting Card -->
+  <div class="card-container">
+    <h1>🎉 Төрсөн өдрийн мэнд! 🎂</h1>
+    <p>Tugsuuduu bayriin mend ystoi hugjiltei huuhed shuu chi hurdan 21 hureeree egcin duu✨</p>   
+    <button class="btn-celebrate" onclick="fireConfetti()">Баяр хүргэе! 🎈</button>
+  </div>
+
+  <script>
+    function fireConfetti() {
+      confetti({
+        particleCount: 80,
+        spread: 60,
+        origin: { y: 0.65 }
+      });
+    }
+
+    window.onload = () => {
+      setTimeout(fireConfetti, 400);
+    };
+  </script>
+</body>
+</html>
